@@ -26,7 +26,7 @@ git push --delete origin feature1
 git push
 git branch feature2
 git checkout feature2
-git --set-upstream origin feature2
+git push --set-upstream origin feature2
 echo feature 1 with 2 bugs feature 2 wip >> fileA.txt
 git add .
 git commit -m "feature 2 wip"
@@ -42,12 +42,12 @@ git checkout master
 git merge --no-ff -m "Merge branch 'release1' into master" release1
 git log --oneline --graph --all
 SET /P commitID=Introduce el ID del commit a etiquetar...:
-git tag %commitID% v1.00
+git tag "v1.00" %commitID%
 git checkout develop
 git merge --no-ff -m "Merge branch 'release1' into develop" release1 
 git push
 git branch -d release1
 git push --delete origin release1
-git checkout release2
+git checkout feature2
 git rebase develop
  
