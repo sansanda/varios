@@ -1,5 +1,5 @@
-git clone https://github.com/sansanda/gitFinalProject.git
-cd gitFinalProject
+git clone https://github.com/sansanda/gitFP.git
+cd gitFP
 git config --global credential.helper store
 git pull
 git branch develop
@@ -50,4 +50,23 @@ git branch -d release1
 git push --delete origin release1
 git checkout feature2
 git rebase develop
- 
+git branch hotfix1
+git checkout hotfix1
+echo feature 1 >> fileA.txt
+git add .
+git commit -m "fix feature 1 bug Y"
+git push --set-upstream origin hotfix1
+git checkout master
+git merge --no-ff -m "Merge branch 'hotfix1' into master" hotfix1
+git log --oneline --graph --all
+SET /P commitID2=Introduce el ID del commit a etiquetar...:
+git tag "v1.00" %commitID2%
+git push
+git checkout develop
+git merge --no-ff -m "Merge branch 'hotfix1' into develop" hotfix1
+git branch -d hotfix1
+git push --delete origin hotfix1
+git push
+git checkout feature2
+git rebase develop
+git push  
