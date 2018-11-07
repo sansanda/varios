@@ -60,7 +60,7 @@ git checkout master
 git merge --no-ff -m "Merge branch 'hotfix1' into master" hotfix1
 git log --oneline --graph --all
 SET /P commitID2=Introduce el ID del commit a etiquetar...:
-git tag "v1.00" %commitID2%
+git tag "v1.01" %commitID2%
 git push
 git checkout develop
 git merge --no-ff -m "Merge branch 'hotfix1' into develop" hotfix1
